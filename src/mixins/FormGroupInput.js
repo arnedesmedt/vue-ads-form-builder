@@ -19,7 +19,7 @@ export default {
         },
 
         value: {
-            required: true,
+            default: null,
         },
     },
 
