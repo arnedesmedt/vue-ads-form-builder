@@ -147,23 +147,53 @@ export default {
             textarea: 'test',
             checkie: true,
             select: 'b2',
-            options: {
-                'Group 1': {
-                    a: 'arne',
-                    b: 'hanne',
-                    c: 'liese',
+            options: [
+                {
+                    label: 'Group 1',
+                    options: [
+                        {
+                            value: 'a',
+                            name: 'arne',
+                        },
+                        {
+                            value: 'b',
+                            name: 'hanne',
+                        },
+                        {
+                            value: 'c',
+                            name: 'liese',
+                        },
+                    ],
                 },
-                'Group 2': {
-                    a2: 'bart',
-                    b2: 'bert',
-                    c2: 'blabla',
+                {
+                    label: 'Group 2',
+                    options: [
+                        {
+                            value: 'a2',
+                            name: 'bart',
+                        },
+                        {
+                            value: 'b2',
+                            name: 'bert',
+                        },
+                        {
+                            value: 'c2',
+                            name: 'blabla',
+                        },
+                    ],
                 },
-            },
+            ],
             radio: 'bla',
-            radioOptions: {
-                bla: 'test',
-                blabla: 'testtest',
-            },
+            radioOptions: [
+                {
+                    value: 'bla',
+                    name: 'test',
+                },
+                {
+                    value: 'blabla',
+                    name: 'testtest',
+                },
+            ],
         };
     },
 

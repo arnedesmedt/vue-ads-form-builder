@@ -17,8 +17,8 @@
                 <input
                     :name="name"
                     :class="inputClasses"
-                    :value="key"
-                    :checked="value === key"
+                    :value="option.value"
+                    :checked="value === option.value"
                     type="radio"
                     class="vue-ads-m-2"
                     @change="$emit('input', $event.target.value)"
@@ -26,7 +26,7 @@
                 <span
                     class="vue-ads-text-grey-dark vue-ads-text-sm vue-ads-flex vue-ads-flex-col vue-ads-justify-center"
                 >
-                    {{ option }}
+                    {{ option.name }}
                 </span>
             </label>
         </div>

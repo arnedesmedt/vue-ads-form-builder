@@ -25,26 +25,26 @@
         >
             <template v-if="optgroups">
                 <optgroup
-                    v-for="(optgroup, label) in options"
-                    :key="label"
-                    :label="label"
+                    v-for="(optgroup, key) in options"
+                    :key="key"
+                    :label="optgroup.label"
                 >
                     <option
-                        v-for="(option, value) in optgroup"
-                        :value="value"
-                        :key="value"
+                        v-for="(option, optionKey) in optgroup.options"
+                        :value="option.value"
+                        :key="optionKey"
                     >
-                        {{ option }}
+                        {{ option.name }}
                     </option>
                 </optgroup>
             </template>
             <template v-else>
                 <option
-                    v-for="(option, value) in options"
-                    :value="value"
-                    :key="value"
+                    v-for="(option, optionKey) in options"
+                    :value="option.value"
+                    :key="optionKey"
                 >
-                    {{ option }}
+                    {{ option.name }}
                 </option>
             </template>
         </select>

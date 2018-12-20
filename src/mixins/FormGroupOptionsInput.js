@@ -5,23 +5,17 @@ export default {
 
     props: {
         options: {
-            type: Object,
+            type: Array,
             required: false,
             default () {
-                return {};
+                return [];
             },
         },
     },
 
     computed: {
         optgroups () {
-            let keys = Object.keys(this.options);
-
-            if (keys.length === 0) {
-                return false;
-            }
-
-            return this.options[keys[0]] instanceof Object;
+            return this.options.length !== 0 && this.options[0].label !== undefined;
         },
     },
 };
