@@ -30,6 +30,7 @@
                     vue-ads-px-1
                     vue-ads-text-grey-darkest
                     vue-ads-text-sm
+                    vue-ads-outline-none
                     focus:vue-ads-shadow-form-focus
                     vue-ads-flex
                 "
@@ -98,7 +99,7 @@
                     "
                 >
                     <div
-                        v-if="searchable"
+                        v-if="searchable" :class="searchClasses"
                     >
                         <input
                             ref="search"
@@ -109,7 +110,7 @@
                                     vue-ads-search
                                     vue-ads-w-full
                                     vue-ads-p-2
-                                    focus:vue-ads-outline-none
+                                    vue-ads-outline-none
                                 "
                             placeholder="search..."
                             @focusout.prevent.stop="deactivate"
@@ -233,6 +234,12 @@ export default {
         scrollStyle () {
             return {
                 'max-height': this.maxOptionBoxHeight,
+            };
+        },
+
+        searchClasses () {
+            return {
+                'vue-ads-border-b': this.filteredOptions.length > 0,
             };
         },
     },

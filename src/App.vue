@@ -64,6 +64,13 @@
                         name="select"
                     />
                     <vue-ads-select
+                        :options="optionsSingle"
+                        v-model="select"
+                        :multiple="false"
+                        label="Title"
+                        name="select"
+                    />
+                    <vue-ads-select
                         :options="options"
                         v-model="selectMultiple"
                         :multiple="true"
@@ -119,6 +126,20 @@ export default {
             checkie: true,
             select: 'a',
             selectMultiple: ['a', 'b', 'c', 'a2', 'd2','b2', 'c2'],
+            optionsSingle: [
+                {
+                    value: 'a',
+                    name: 'arne de smedt',
+                },
+                {
+                    value: 'b',
+                    name: 'hanne vandenhenden',
+                },
+                {
+                    value: 'c',
+                    name: 'liese de smedt',
+                },
+            ],
             options: [
                 {
                     label: 'Group 1',
