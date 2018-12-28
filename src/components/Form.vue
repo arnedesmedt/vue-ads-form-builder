@@ -5,6 +5,8 @@
 </template>
 
 <script>
+// todo create custom submit that outputs a formData object
+
 export default {
     name: "VueAdsForm",
 };
