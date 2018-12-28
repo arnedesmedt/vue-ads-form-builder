@@ -99,7 +99,8 @@
                     "
                 >
                     <div
-                        v-if="searchable" :class="searchClasses"
+                        v-if="searchable" 
+                        :class="searchClasses"
                     >
                         <input
                             ref="search"
