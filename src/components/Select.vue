@@ -5,13 +5,6 @@
         :spacing="spacing"
         :class="containerClasses"
         :label-classes="labelClasses"
-        :tabindex="tabIndex"
-        class="vue-ads-outline-none"
-        @focusin.native.stop="activate"
-        @focusout.native="deactivate"
-        @keyup.esc.native="deactivate"
-        @keyup.down.native="down"
-        @keyup.up.native="up"
     >
         <div
             class="
@@ -28,6 +21,7 @@
             >
             <div
                 ref="select"
+                :tabindex="tabIndex"
                 :style="inputStyle"
                 class="
                     vue-ads-w-full
@@ -39,6 +33,9 @@
                     focus:vue-ads-shadow-form-focus
                     vue-ads-flex
                 "
+                @mousedown.prevent.stop="toggleActive"
+                @focusin.prevent.stop="activate"
+                @focusout.prevent.stop="deactivate"
             >
                 <div class="vue-ads-flex-grow vue-ads-flex">
                     <div class="vue-ads-flex vue-ads-flex-wrap vue-ads-pb-1">
@@ -67,8 +64,8 @@
                             ">
                                 <div class="vue-ads-p-1">{{ option.name }}</div>
                                 <div
-                                   class="vue-ads-p-1 vue-ads-cursor-pointer hover:vue-ads-bg-orange-dark vue-ads-rounded-sm"
-                                   @mousedown.prevent="selectOption(option)"
+                                    class="vue-ads-p-1 vue-ads-cursor-pointer hover:vue-ads-bg-orange-dark vue-ads-rounded-sm"
+                                    @mousedown.prevent="selectOption(option)"
                                 >
                                     x
                                 </div>
@@ -115,6 +112,7 @@
                                     focus:vue-ads-outline-none
                                 "
                             placeholder="search..."
+                            @focusout.prevent.stop="deactivate"
                         >
                     </div>
                     <vue-perfect-scrollbar
@@ -128,7 +126,7 @@
                                 vue-ads-py-2
                                 vue-ads-px-3
                             "
-                            @click="selectOption(option)"
+                            @mousedown.prevent.stop="selectOption(option)"
                         >
                             {{ option.name }}
                         </div>
@@ -143,10 +141,8 @@
 import VuePerfectScrollbar from 'vue-perfect-scrollbar';
 import FormGroupOptionsInput from '../mixins/FormGroupOptionsInput';
 
-// todo deactivate if select is clicked twice
-// todo double tab needed if you want to blur the selectbox
-// todo deactivate doesnt work on selection for not multiple
 // todo up and down with arrow keys => look for direction
+// todo deactivate non searchable selects on blur
 
 export default {
     name: "VueAdsSelect",
@@ -253,18 +249,26 @@ export default {
 
     methods: {
         async toggleActive ($event) {
-            console.log('toggle');
+            console.log('toggle', $event.type, $event.target);
             this.activated = !this.activated;
         },
 
         activate ($event) {
             console.log('activate');
+            console.log($event.type);
+            console.log($event.target);
             this.activated = true;
         },
 
         deactivate ($event) {
-            console.log('deactivate');
-            this.activated = false;
+            if(
+                (this.searchable && $event.target.tagName === 'INPUT') ||
+                (!this.searchable && $event.target.tagName === 'DIV')
+            ) {
+                console.log('deactivate');
+                console.log($event.type);
+                this.activated = false;
+            }
         },
 
         activatedChanged (activated) {
@@ -275,7 +279,11 @@ export default {
                 this.showTop = elementTop > (windowHeight / 2);
 
                 this.$nextTick(() => {
-                    this.$refs.search.focus();
+                    this.$el.querySelector('.ps__scrollbar-y-rail').children[0].setAttribute('tabindex', -1);
+
+                    if (this.searchable) {
+                        this.$refs.search.focus();
+                    }
                 });
             }
         },
@@ -287,12 +295,16 @@ export default {
 
             if (!this.multiple) {
                 this.flattenedOptions.forEach(option => option.selected = false);
-                this.deactivate();
+                this.activated = false;
             }
 
             option.selected = !option.selected;
 
-            this.$emit('input', this.selectedOptions.map(option => option.value));
+            if (!this.multiple) {
+                this.$emit('input', this.selectedOptions.value);
+            } else {
+                this.$emit('input', this.selectedOptions.map(option => option.value));
+            }
 
             this.$nextTick(() => {
                 this.updateSelectHeight();
@@ -324,3 +336,9 @@ export default {
     },
 };
 </script>
+
+<style>
+.ps__scrollbar-y-rail {
+    background-color: transparent !important;
+}
+</style>

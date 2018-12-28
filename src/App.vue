@@ -63,6 +63,22 @@
                         name="select"
                         :multiple="false"
                     />
+                    <vue-ads-select
+                        :options="options"
+                        v-model="selectMultiple"
+                        label="Title"
+                        name="select"
+                        :multiple="true"
+                        :searchable="false"
+                    />
+                    <vue-ads-select
+                        :options="options"
+                        v-model="select"
+                        label="Title"
+                        name="select"
+                        :multiple="false"
+                        :searchable="false"
+                    />
                 </vue-ads-form-group>
                 <vue-ads-form-group
                     container-classes="vue-ads-p-2"
