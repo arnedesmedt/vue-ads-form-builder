@@ -20,64 +20,64 @@
                         placeholder="test"
                     />
                     <!--<vue-ads-password-->
-                        <!--v-model="password"-->
-                        <!--label="Password"-->
-                        <!--name="password"-->
+                    <!--v-model="password"-->
+                    <!--label="Password"-->
+                    <!--name="password"-->
                     <!--/>-->
                     <!--<vue-ads-textarea-->
-                        <!--v-model="textarea"-->
-                        <!--label="Text"-->
-                        <!--name="name"-->
+                    <!--v-model="textarea"-->
+                    <!--label="Text"-->
+                    <!--name="name"-->
                     <!--/>-->
                     <!--<vue-ads-text-->
-                        <!--v-model="text"-->
-                        <!--name="name"-->
-                        <!--placeholder="test"-->
+                    <!--v-model="text"-->
+                    <!--name="name"-->
+                    <!--placeholder="test"-->
                     <!--/>-->
                     <!--<vue-ads-password-->
-                        <!--v-model="password"-->
-                        <!--label="Password"-->
-                        <!--name="password"-->
+                    <!--v-model="password"-->
+                    <!--label="Password"-->
+                    <!--name="password"-->
                     <!--/>-->
                     <!--<vue-ads-textarea-->
-                        <!--v-model="textarea"-->
-                        <!--label="Text"-->
-                        <!--name="name"-->
+                    <!--v-model="textarea"-->
+                    <!--label="Text"-->
+                    <!--name="name"-->
                     <!--/>-->
                     <!--<vue-ads-checkbox-->
-                        <!--v-model="checkie"-->
-                        <!--name="checked"-->
-                        <!--label="Do you want to check this"-->
+                    <!--v-model="checkie"-->
+                    <!--name="checked"-->
+                    <!--label="Do you want to check this"-->
                     <!--/>-->
                     <vue-ads-select
                         :options="options"
                         v-model="selectMultiple"
+                        :multiple="true"
                         label="Title"
                         name="select"
-                        :multiple="true"
                     />
                     <vue-ads-select
                         :options="options"
                         v-model="select"
+                        :multiple="false"
                         label="Title"
                         name="select"
-                        :multiple="false"
                     />
                     <vue-ads-select
                         :options="options"
                         v-model="selectMultiple"
-                        label="Title"
-                        name="select"
                         :multiple="true"
                         :searchable="false"
+                        label="Title"
+                        name="select"
                     />
                     <vue-ads-select
                         :options="options"
                         v-model="select"
-                        label="Title"
-                        name="select"
                         :multiple="false"
                         :searchable="false"
+                        label="Title"
+                        name="select"
                     />
                 </vue-ads-form-group>
                 <vue-ads-form-group
