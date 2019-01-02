@@ -7,13 +7,22 @@
     >
         <div class="vue-ads-flex">
             <input
+                v-if="!value"
+                :name="name"
+                type="hidden"
+                value="false"
+            />
+            <input
                 :name="name"
                 :class="inputClasses"
                 :checked="value"
+                value="true"
+                true-value="true"
+                false-value="false"
                 type="checkbox"
                 class="vue-ads-m-2"
                 @change="$emit('input', $event.target.checked)"
-            >
+            />
             <span
                 v-if="label"
                 :class="labelClasses"

@@ -44,11 +44,11 @@
                     <!--label="Text"-->
                     <!--name="name"-->
                     <!--/>-->
-                    <!--<vue-ads-checkbox-->
-                    <!--v-model="checkie"-->
-                    <!--name="checked"-->
-                    <!--label="Do you want to check this"-->
-                    <!--/>-->
+                    <vue-ads-checkbox
+                        v-model="checkie"
+                        name="checked"
+                        label="Do you want to check this"
+                    />
                     <vue-ads-select
                         :options="options"
                         v-model="selectMultiple"
