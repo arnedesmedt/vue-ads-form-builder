@@ -11,7 +11,7 @@
                 :name="name"
                 type="hidden"
                 value="false"
-            />
+            >
             <input
                 :name="name"
                 :class="inputClasses"
@@ -22,7 +22,7 @@
                 type="checkbox"
                 class="vue-ads-m-2"
                 @change="$emit('input', $event.target.checked)"
-            />
+            >
             <span
                 v-if="label"
                 :class="labelClasses"
