@@ -7,8 +7,8 @@ module.exports = {
             whitelistPatterns: [
                 /^body$/,
                 /^html$/,
-                /^vue-ads-border*$/,
-                /^hover:vue-ads-bg-orange*$/,
+                /^vue-ads-border.*$/,
+                /^hover\:vue-ads-bg-orange.*$/,
             ],
         },
         'postcss-import': {},
