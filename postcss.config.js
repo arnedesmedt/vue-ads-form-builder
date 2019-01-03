@@ -8,7 +8,7 @@ module.exports = {
                 /^body$/,
                 /^html$/,
                 /^vue-ads-border*$/,
-                /^hover:vue-ads-bg-orange-lighter$/,
+                /^hover:vue-ads-bg-orange*$/,
             ],
         },
         'postcss-import': {},

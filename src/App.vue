@@ -86,6 +86,12 @@
                         label="Title"
                         name="select"
                     />
+                    <vue-ads-radio
+                        :options="radioOptions"
+                        v-model="radio"
+                        label="Patching Schedule"
+                        name="patching_schedule"
+                    />
                 </vue-ads-form-group>
                 <vue-ads-form-group
                     container-classes="vue-ads-p-2"

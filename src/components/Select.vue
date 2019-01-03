@@ -16,7 +16,7 @@
             <input
                 v-if="name"
                 :name="name"
-                v-model="value"
+                :value="value"
                 type="hidden"
             >
             <div
@@ -99,7 +99,7 @@
                     "
                 >
                     <div
-                        v-if="searchable" 
+                        v-if="searchable"
                         :class="searchClasses"
                     >
                         <input

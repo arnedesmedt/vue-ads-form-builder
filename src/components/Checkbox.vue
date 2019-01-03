@@ -5,7 +5,7 @@
         :class="containerClasses"
         :container-label="false"
     >
-        <div class="vue-ads-flex">
+        <label class="vue-ads-flex">
             <input
                 v-if="!value"
                 :name="name"
@@ -25,12 +25,11 @@
             >
             <span
                 v-if="label"
-                :class="labelClasses"
                 class="vue-ads-text-grey-dark vue-ads-text-sm vue-ads-leading-loose"
             >
                 {{ label }}
             </span>
-        </div>
+        </label>
     </vue-ads-input-container>
 </template>
 

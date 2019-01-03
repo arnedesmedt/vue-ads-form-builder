@@ -24,7 +24,7 @@
                     @change="$emit('input', $event.target.value)"
                 >
                 <span
-                    class="vue-ads-text-grey-dark vue-ads-text-sm vue-ads-flex vue-ads-flex-col vue-ads-justify-center"
+                    class="vue-ads-text-grey-dark vue-ads-text-sm vue-ads-flex vue-ads-flex-col vue-ads-justify-center vue-ads-font-normal"
                 >
                     {{ option.name }}
                 </span>
