@@ -257,14 +257,10 @@ export default {
 
     methods: {
         async toggleActive ($event) {
-            console.log('toggle', $event.type, $event.target);
             this.activated = !this.activated;
         },
 
         activate ($event) {
-            console.log('activate');
-            console.log($event.type);
-            console.log($event.target);
             this.activated = true;
         },
 
@@ -273,8 +269,6 @@ export default {
                 (this.searchable && $event.target.tagName === 'INPUT') ||
                 (!this.searchable && $event.target.tagName === 'DIV')
             ) {
-                console.log('deactivate');
-                console.log($event.type);
                 this.activated = false;
             }
         },
