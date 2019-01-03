@@ -1,6 +1,6 @@
 {
   "name": "vue-ads-form-builder",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "private": false,
   "main": "./dist/vue-ads-form-builder.common.js",
   "description": "A Vue from builder",
