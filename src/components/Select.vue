@@ -7,6 +7,7 @@
         :label-classes="labelClasses"
     >
         <div
+            :class="inputClasses"
             class="
                 vue-ads-flex
                 vue-ads-flex-col
